@@ -1,12 +1,20 @@
-/*
-REGOLE
-- Tutte le risposte devono essere scritte in JavaScript
-- Puoi usare Google / StackOverflow ma solo quanto ritieni di aver bisogno di qualcosa
- che non è stato spiegato a lezione
-- Puoi testare il tuo codice in un file separato, o de-commentando un esercizio alla volta
-*/
+/*function hello(n1, n2) {
+  let first = Number(n1);
+  let second = Number(n2);
 
-/* ESERCIZIO 1
+  if (typeof n1 === "number" && typeof n2 === "number" && !isNaN(first)) {
+    let yo = n1 + n2;
+    return yo;
+  } else {
+    return "damme li numeri";
+  }
+}
+console.log(hello("21", "10"));
+console.log(hello(21, 10));
+
+console.log("----------  =( ----------");
+
+ ESERCIZIO 1
  Scrivi una funzione di nome "area", che riceve due parametri (l1, l2) e calcola l'area del 
  rettangolo associato..
 */
@@ -66,7 +74,7 @@ console.log("Result=", outc);
 console.log("---------- ESERCIZIO 4 ----------");
 
 function boundary(n) {
-  if ((n >= 20 && n <= 100) || n === 200) {
+  if ((n >= 20 && n <= 100) || n === 400) {
     return true;
   } else {
     return false;
@@ -89,39 +97,81 @@ console.log(risultato1);
  La funzione deve aggiungere la parola "EPICODE" all'inizio della stringa fornita, 
  ma se la stringa fornita comincia già con "EPICODE" allora deve
  ritornare la stringa originale senza alterarla.
-*/
 
-function epify(str) {
-  if (str("EPICODE")) {
-  } else {
-    return "EPICODE";
-  }
+
+
+function epify(argomento) {
+  argomento = "EPICODE" + argomento;
+  console.log(argomento);
 }
-
-let stringa = "ciao epicoders";
-let outcome = epify(stringa);
-console.log(stringa);
+epify("forza roma");*/
+console.log("---------- ESERCIZIO 5 ----------");
+const epify = function (str) {
+  if (str.startsWith("EPICODE")) {
+    return str;
+  } else {
+    return "EPICODE " + str;
+  }
+};
+console.log(epify("EPICODERS")); // EPICODERS argomento
+console.log(epify("Hello")); // EPICODE Hello
 
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro.
  La funzione deve controllare che il parametro sia un multiplo
  di 3 o di 7. (Suggerimento: usa l'operatore modulo)
 */
+console.log("---------- ESERCIZIO 6 ----------");
+function check3and7(n) {
+  if (n % 3 === 0 || n % 7 === 0) {
+    return true;
+  } else return false;
+}
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+console.log(check3and7(21));
 
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita 
  come parametro (es. "EPICODE" --> "EDOCIPE")
 */
+console.log("---------- ESERCIZIO 7 ----------");
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function reverseString(EPICODE) {
+  console.log(EPICODE);
+  let reverseString = "";
+  for (i = EPICODE.length - 1; i >= 0; i--) {
+    reverseString = reverseString + EPICODE[i];
+    console.log(EPICODE[i]);
+    console.log(reverseString);
+  }
+  console.log(reverseString);
+  return reverseString;
+}
+
+reverseString("EPICODE");
 
 /* ESERCIZIO 8
  Scrivi una funzione di nome "upperFirst", che riceve come parametro una stringa formata da 
  diverse parole. La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta 
  nella stringa.
 */
+console.log("---------- ESERCIZIO 8 ----------");
+
+function upperFirst(stringa) {
+  let parole = stringa.split(" ");
+  let risultato = "";
+
+  for (let i = 0; i < parole.length; i++) {
+    let parola = parole[i];
+    let primaLetteraMaiuscola = parola.charAt(0).toUpperCase();
+    let restoParola = parola.slice(1);
+    let parolaMaiuscola = primaLetteraMaiuscola + restoParola;
+    risultato += parolaMaiuscola + " ";
+  }
+
+  return risultato.trim();
+}
+upperFirst("bella");
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
@@ -129,12 +179,28 @@ console.log(stringa);
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione 
  deve creare una nuova stringa senza il primo e l'ultimo carattere della stringa originale.
 */
+console.log("---------- ESERCIZIO 9 ----------");
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function cutstring(stringa) {
+  return stringa.substring(1, stringa.length - 1);
+}
+console.log(cutstring("stringa"));
 
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna 
  un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
+console.log("---------- ESERCIZIO 10 ----------");
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+function giveMeRandom(n) {
+  let bracci = [];
+  for (let g = 0; g < n; g++) {
+    // 0=3 ciclo deve continua finche è 0
+
+    let numeroCasuale = Math.floor(Math.random() * 10);
+    bracci.push(numeroCasuale);
+  }
+  return bracci;
+}
+
+console.log(giveMeRandom(3));
